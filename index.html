@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Financial Advisor: Analyze your spending and make smarter financial decisions with our AI-powered tool.">
+    <title>AI Financial Advisor</title>
+
+    <!-- Font Awesome Icons --> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Navigation -->
+     <nav>
+        <div class="nav-container">
+                <div class="logo"> 
+                    <span class="vector">Vector</span><span class="blink">Z</span>            
+                </div>
+            <div class="hamburger" onclick="toggleNav()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#features">Features</a>
+                <a href="./about/about.html">About</a>
+                <a href="./contact/index.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- <-- Hero Section with Slider --> 
+    <section class="hero" id="home">
+        <div class="slider">
+            <div class="slide active">
+                <div class="slide-content">
+                    <h1>Take Control of Your Finances</h1>
+                    <p>Our AI-powered financial advisor analyzes your spending patterns and helps you make smarter financial decisions.</p>
+                    <a href="./create/finance_analyzer.py" target="_blank" class="cta-button">Check Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+    <!-- Features Section -->
+<section class="features" id="features">
+    <div class="features-container">
+        <div class="feature-card">
+            <a href="./feature/smart.html">
+                <i class="fas fa-chart-line"></i>
+                <h3>Smart Budget Analysis</h3>
+                <p>Our AI analyzes your spending patterns and suggests personalized budgeting strategies to help you save more.</p>
+            </a>
+        </div>
+        <div class="feature-card">
+            <a href="./feature/saving.html  ">
+                <i class="fas fa-piggy-bank"></i>
+                <h3>Savings Goals</h3>
+                <p>Set and track your savings goals with intelligent recommendations on how to achieve them faster.</p>
+            </a>
+        </div>
+        <div class="feature-card">
+            <a href="./feature/secure.html">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Integration</h3>
+                <p>Bank-level security with Plaid API integration ensures your financial data is always protected.</p>
+            </a>
+        </div>
+    </div>
+</section>
+<div id="flask-message"></div>
+<button id="sendButton">Send Data to Backend</button>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#guides">Financial Guides</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="#sales">Sales</a></li>
+                    <li><a href="#partnerships">Partnerships</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AI Financial Advisor. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- External JS -->
+    <script src="index.js">
+    </script>
+</body>
+</html> 

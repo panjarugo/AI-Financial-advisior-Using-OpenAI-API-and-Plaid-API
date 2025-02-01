@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Journey & Our Team</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%);
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            padding: 100px 20px 50px;
+            background: url('./img/financial-bg.jpg') no-repeat center;
+            background-size: cover;
+            color: white;
+        }
+
+        .title {
+            font-size: 3em;
+            font-weight: bold;
+            color: #1a365d;
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c5282;
+        }
+
+        .stats {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            display: flex;
+            justify-content: space-around;
+            margin: 40px auto;
+            border-radius: 16px;
+            max-width: 1050px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat h2 {
+            font-size: 2.5em;
+            color: #2d3748;
+        }
+
+        .mission-container {
+            background-color: #f5f3eb;
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 1000px;
+            margin: 50px auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+
+        .team-section {
+            padding: 80px 20px;
+            background: #e6f0ff;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .team-member {
+            position: relative;
+            width: 220px;
+            height: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-member:hover .team-info {
+            transform: translateY(0);
+        }
+
+        .team-info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Simplifying Financial Journey of</div>
+        <div class="subtitle">Digital India</div>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <h2>5x <i class="fas fa-chart-line"></i></h2>
+            <p>GROWTH IN USERBASE</p>
+        </div>
+        <div class="stat">
+            <h2>15x <i class="fas fa-exchange-alt"></i></h2>
+            <p>GROWTH IN TRANSACTIONS</p>
+        </div>
+        <div class="stat">
+            <h2>11x <i class="fas fa-rupee-sign"></i></h2>
+            <p>GROWTH IN TRANSACTIONS VALUE</p>
+        </div>
+    </div>
+
+    <div class="mission-container">
+        <h2>Our Mission</h2>
+        <p>Our mission to simplify the financial journey of retail consumers!</p>
+        <p>Empowering Digital India by revolutionizing financial management with cutting-edge technology, 
+            our mission is to create a seamless, intelligent financial advisory platform that simplifies 
+            the way individuals and businesses track spending, manage budgets, and make informed investment 
+            decisions. In an era where financial decision-making is becoming increasingly complex, we aim to 
+            provide an intuitive and user-friendly experience that empowers users to take control of their 
+            financial health. By harnessing the power of Artificial Intelligence, we offer personalized insights 
+            and tailored recommendations that help users make smarter, more informed choices. Our platform is designed 
+            with robust security features and secure integrations, ensuring that every transaction and piece of 
+            data is protected at all times. Transparency and efficiency lie at the heart of our solution, as we 
+            strive to offer an accessible and reliable tool for financial management. Our vision is to transform the 
+            financial landscape of India, enabling individuals and businesses to thrive in a digital-first world.</p>
+    </div>
+
+    <div class="team-section">
+        <h2> Meets Our Creators</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="adrash.jpg" alt="John Doe">
+                <div class="team-info">
+                    <h3>Adarsh Mishra</h3>
+                    <p>CEO</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="kuldeep.jpg" alt="Jane Smith">
+                <div class="team-info">
+                    <h3>Kuldeep Prajapati</h3>
+                    <p>Founder</p>
+                </div>
+            </div>
+            <!-- <div class="team-member">
+                <img src="team3.jpg" alt="Rahul Sharma">
+                <div class="team-info">
+                    <h3>Rahul Sharma</h3>
+                    <p>Head of Development</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>

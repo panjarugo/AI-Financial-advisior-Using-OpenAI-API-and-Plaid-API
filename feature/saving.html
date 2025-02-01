@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Savings Goals - Premium Financial Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --background: #F8FAFC;
+            --text: #1E293B;
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #688cb0 0%, #97b8e2 100%);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .savings-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .savings-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .savings-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .goal-form {
+            background: var(--glass);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .goal-form:hover {
+            transform: translateY(-5px);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+            outline: none;
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748B;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            left: 0.8rem;
+            font-size: 0.8rem;
+            color: var(--primary);
+            background: var(--glass);
+            padding: 0 0.5rem;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button:hover {
+            background: #4338CA;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
+        }
+
+        .goals-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .goal-card {
+            background: var(--glass);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-container {
+            height: 8px;
+            background: #E2E8F0;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            animation: shine 1.5s infinite;
+        }
+
+        .ai-recommendation {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .ai-recommendation::before {
+            content: '💡';
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .goal-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #64748B;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .completion-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--secondary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .savings-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="savings-header">
+            <h1>Smart Savings Goals</h1>
+            <p>Visualize and achieve your financial targets with AI-powered insights</p>
+        </header>
+
+        <form class="goal-form" id="savingsForm">
+            <h2>Create New Goal</h2>
+            <div class="form-grid">
+                <div class="input-group">
+                    <input type="text" id="goalName" placeholder=" " required>
+                    <label>Goal Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="targetAmount" placeholder=" " required>
+                    <label>Target Amount</label>
+                </div>
+                <div class="input-group">
+                    <input type="date" id="targetDate" required>
+                    <label>Target Date</label>
+                </div>
+            </div>
+            <button type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+                Create Goal
+            </button>
+        </form>
+
+        <div class="goals-dashboard" id="goalsContainer">
+            <!-- Sample Goal -->
+            <div class="goal-card">
+                <div class="completion-badge">45% Complete</div>
+                <div class="goal-meta">
+                    <span>Target: $5,000</span>
+                    <span>3 months left</span>
+                </div>
+                <h3>Emergency Fund</h3>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 45%"></div>
+                </div>
+                <div class="ai-recommendation">
+                    Save $916/month + reduce dining out by $200 to reach goal faster
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const goals = [];
+
+        document.getElementById('savingsForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const goal = {
+                id: Date.now(),
+                name: document.getElementById('goalName').value,
+                target: parseFloat(document.getElementById('targetAmount').value),
+                targetDate: document.getElementById('targetDate').value,
+                current: 0,
+                created: new Date().toISOString()
+            };
+
+            goals.push(goal);
+            renderGoals();
+            e.target.reset();
+            
+            // Add animation feedback
+            const form = e.target;
+            form.style.transform = 'translateY(-5px)';
+            setTimeout(() => form.style.transform = 'translateY(0)', 300);
+        });
+
+        function calculateRecommendations(goal) {
+            const timeRemaining = (new Date(goal.targetDate) - new Date()) / (1000 * 60 * 60 * 24);
+            const monthsRemaining = Math.ceil(timeRemaining / 30);
+            const amountNeeded = goal.target - goal.current;
+            const monthlyTarget = amountNeeded / monthsRemaining;
+
+            if(monthlyTarget <= 0) return "Goal completed! 🎉";
+            
+            let recommendation = `Save $${monthlyTarget.toFixed(2)}/month`;
+            if(monthlyTarget > (goal.target * 0.2)) {
+                recommendation += " + review discretionary spending";
+            }
+            return recommendation;
+        }
+
+        function renderGoals() {
+            const container = document.getElementById('goalsContainer');
+            container.innerHTML = goals.map(goal => `
+                <div class="goal-card">
+                    <div class="completion-badge">
+                        ${Math.round((goal.current / goal.target) * 100)}% Complete
+                    </div>
+                    <div class="goal-meta">
+                        <span>Target: $${goal.target.toFixed(2)}</span>
+                        <span>${Math.ceil((new Date(goal.targetDate) - new Date()) / (1000 * 60 * 60 * 24))} days left</span>
+                    </div>
+                    <h3>${goal.name}</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar" 
+                             style="width: ${(goal.current / goal.target * 100)}%">
+                        </div>
+                    </div>
+                    <div class="ai-recommendation">
+                        ${calculateRecommendations(goal)}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initial render
+        renderGoals();
+    </script>
+</body>
+</html>
